@@ -48,3 +48,13 @@ Notes.NotesController = Ember.ArrayController.extend({
         }
     }
 });
+
+/** Ember Data **/
+Notes.Note = DS.Model.extend({
+    name: DS.attr('string'),
+    value: DS.attr('string')
+});
+
+Notes.Store = DS.Store.extend({
+    adapter: DS.LSAdapter
+});
