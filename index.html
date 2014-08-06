@@ -19,10 +19,19 @@
 
     <script type="text/x-handlebars" id="notes">
         <div id="notes" class="azureBlueBackground azureBlueBorderThin">
-            {{input}}
-            <button class="btn btn-default btn-xs" >
+            {{input valueBinding="newNoteName"}}
+            <button class="btn btn-default btn-xs" {{action "createNewNote"}}>
               New Note
             </button>
+            <div class="list-group" style="margin-top: 10px;">
+                {{#each controller}}
+                  {{#linkTo "notes.note" this class="list-group-item"}}
+                    {{name}}
+
+                    <button class="btn btn-danger btn-xs pull-right" {{action "doDeleteNote" this}}>Delete</button>
+                  {{/linkTo}}
+                {{/each}}
+            </div>
         </div>
     </script>
 </head>

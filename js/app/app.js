@@ -26,10 +26,14 @@ Notes.NotesController = Ember.ArrayController.extend({
     actions: {
         createNewNote: function() {
             var content = this.get('content');
+            console.log("here's content: " + content);
             var newNoteName = this.get('newNoteName');
+            console.log("newNoteName: " + newNoteName);
             var unique = newNoteName != null && newNoteName.length > 1;
 
             content.forEach(function(note) {
+                console.log("here's newNoteName: " + newNoteName);
+                console.log("name: " + note.get('name'));
                 if (newNoteName === note.get('name')) {
                     unique = false; return; // if not unique return
                 }
