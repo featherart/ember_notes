@@ -33,6 +33,17 @@
                 {{/each}}
             </div>
         </div>
+        {{ outlet }}
+    </script>
+
+    <script type="text/x-handlebars" id="notes/note">
+        <div id="selectedNote">
+            <h1>name: {{name}}</h1>
+            {{view Ember.TextArea valueBinding="value"}}
+            <button class="btn btn-primary form-control mediumTopPadding" {{action "updateNote"}}>
+              Update
+            </button><br />
+        </div>
     </script>
 </head>
 <body>
